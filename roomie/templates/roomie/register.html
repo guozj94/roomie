@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roomie</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- change the src of style sheet and js  -->
+    <!-- <link rel="stylesheet" type="text/css" href="../../static/css/profile.css"> -->
+
+    {% load staticfiles %}  
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- bootstrap -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'roomie/css/bootstrap.min.css' %}"> -->
+
+
+    <!-- jquery -->
+    <script src="{% static 'roomie/js/jquery-3.2.0.js' %}"></script>
+    <!-- jQuery UI -->
+    <script src="{% static 'roomie/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'roomie/js/jquery-ui.min.js' %}"></script>
+    <!-- Tags inputting -->
+    <script src="{% static 'roomie/js/bootstrap-tagsinput.js' %}"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'roomie/js/bootstrap.min.js' %}"></script>
+
+    <!-- Customized -->
+    <link rel="stylesheet" href="{% static 'roomie/css/register.css' %}">
+
+
+</head>
+
+<body>
+
+<!-- 
+Design register pure CSS
+Developed by @mrjopino
+-->
+<div style="margin-top: 100px;">
+        <img src="{% static 'roomie/img/roomie.svg' %}" width="250px">
+    </div>
+<div class="Registro">
+    <form method="POST" action="{% url 'register' %}">
+        {{form}}
+        <input type="submit" value="REGISTER" title="Register">
+        {% csrf_token %}
+    </form>
+</div>
+
+</body>
+</html>

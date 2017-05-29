@@ -1,0 +1,199 @@
+{% extends "roomie/roomiebase.html" %}
+
+{% block customized_static %}
+	{% load static %}
+	{% load staticfiles %}	
+	<!-- Customized -->
+	<script src="{% static 'roomie/js/modernizr.js' %}"></script> <!-- Modernizr -->
+	<link rel="stylesheet" href="{% static 'roomie/css/likedpropertydetail.css' %}">
+	<script type="text/javascript" src= "{% static 'roomie/js/likedpropertydetail.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQYvuvYy6ayHtsD1YLW40vK5XX1AjZ3YQ&libraries=places&callback=initAutocomplete"></script>
+{% endblock %}
+
+{% block bodycontent %}
+	<div>
+		<input type="hidden" id="propertyid" name="propertyid" value="{{property_id}}">
+		<input type="hidden" id="coordinates" name="coordinates" value="{{propertyInfo.coordinates}}">
+		<input type="hidden" id="if_liked" name="if_liked" value="{{if_liked}}">
+	</div>
+	<script type="text/javascript">
+		var like_icon_url = "{% static 'roomie/img/like.svg' %}"
+		var liked_icon_url = "{% static 'roomie/img/liked.svg' %}"
+	</script>
+
+	<div class="row1 top-content-container">
+	<div class="colunm top-content">
+		<div class="row1 property-name">{{propertyInfo.name}}</div>
+		<div class="row1 property-overview">
+			<img src="{{propertyInfo.propertyPicture}}" width="650px" height="380px">
+			<div class="column overview">
+				<div id="overview-neighborhood-name">{{propertyInfo.neighborhood}}</div>
+				<div id="overview-property-name">{{propertyInfo.name}}</div>
+				<div id="address">
+					<div>Address</div>
+					<div>{{propertyInfo.address1}}</div>
+					<div>{{propertyInfo.address2}}</div>
+					<div>{{propertyInfo.address3}}</div>
+				</div>
+				<div id="transport">
+					<div>Transport</div>
+					<div>{{propertyInfo.transport}}</div>
+				</div>
+				<div class="row1 property-operation">
+					<!-- Price of the property -->
+					<div class="column property-operation-sub" id="property-bedrooms">
+						<div class="property-operation-sub-text" id="property-bedrooms-text">BEDROOMS</div>
+						<div id="property-bedrooms-value">1,2,3,4</div>
+					</div>
+					<script type="text/javascript">
+						var maxbed = 0
+					</script>
+					{% for fp in floorplans %}
+					<script type="text/javascript">
+						var num = parseInt("{{fp.name}}");
+						if(num < 10 && num > 1) num = num;
+						else num = 1;
+						maxbed = num > maxbed ? num : maxbed;
+					</script>
+					{% endfor %}
+					<script type="text/javascript">
+						$("#property-bedrooms-value").text("max "+maxbed);
+					</script>
+					<!-- How many liked the property -->
+					<div class="column property-operation-sub" id="property-price">
+						<div class="property-operation-sub-text" id="property-price-text">PRICE</div>
+						<div id="property-price-value">{{minPrice}}</div>
+					</div>
+					<!-- How many matches do you have for this property -->
+					<div class="column property-operation-sub" id="property-like">
+						<div class="property-operation-sub-text" id="property-like-text">LIKE</div>
+						<img id="property-like-icon" src="{% static 'roomie/img/like.svg' %}" width="28px" height="28px">
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	</div>
+
+	<!-- Roomie awaits go here -->
+	<div id="roomie-container">
+		<div class="row1">
+			<div id="roomie-title">Your Future Roomie Awaits</div>
+		</div>			
+		<div class="row1 roomie-slider">
+			<div id="roomie-left-btn">&#10094;</div>
+			<div class="row1" id="roomies">				
+			<!-- information about another who liked the property -->
+				{% for likeduser in likedUsers %}
+				<div class="column roomie">
+					<input type="hidden" id="liked_user_id" name="liked_user_id" value={{likeduser.id}} />
+					<div class="roomie-name">{{likeduser.first_name}}</div>
+					<div class="roomie-info">
+						{% if likeduser.gender is not None %}
+						{{likeduser.gender}}
+						{% else %}
+						&nbsp	
+						{% endif %}
+					</div>
+				    <div class="picture-container">
+						<div class="roomie-image picture">
+							<img class="picture-src" src="{% url 'picture' likeduser.id %}" onerror="this.src='../../../static/roomie/img/default_photo.png'" width="150px" height="150px">	
+						</div>
+					</div>
+					<div class="tags-container">
+						{% if likeduser.tags %}
+							<div class="tags">
+							{% for tag in likeduser.tags %}
+								<div>{{tag}}</div>
+							{% endfor %}
+							{% if likeduser.nationality is not None %}
+							<div>{{likeduser.nationality}}</div>
+							{% endif %}
+							{% if likeduser.program is not None %}
+							<div>{{likeduser.program}}</div>
+							{% endif %}
+							</div>
+						{% else %}
+						<div class="tags" style="">
+						</div>
+						{% endif %}
+					</div>
+					<div class="row1 like-or-pass">
+ 						<img class="dislike-button" src="{% static 'roomie/img/pass.svg' %}" width="62px" height="84px" />
+						<img class="like-button" src="{% static 'roomie/img/like-roomie.svg' %}" width="62px" height="84px" />
+					</div>
+				</div>
+				{% endfor %}
+
+				{% for waitinggroup in waitingGroups %}
+				<div class="column roomie roomie-group">
+					<input type="hidden" id="roomie_group_id" name="roomie_group_id" value={{waitinggroup.group.id}} />
+					<div class="roomie-name">
+					{% for member in waitinggroup.members %}
+					{{member.first_name}}
+					{% endfor %}
+					</div>
+				    <div class="picture-container">
+						{% for member in waitinggroup.members %}
+						<div class="roomie-image picture">
+							<img class="picture-src" src="{% url 'picture' member.id %}" onerror="this.src='../../../static/roomie/img/default_photo.png'" width="150px" height="150px">	
+						</div>
+						{% endfor %}
+					</div>
+					<div class="tags-container">
+						<div class="tags">
+							{% for member in waitinggroup.members %}
+							{% for tag in member.tags %}
+							<div>{{tag}}</div>
+							{% endfor %}
+							{% endfor %}
+						</div>
+					</div>
+					<div class="row1 like-or-pass">
+ 						<img class="group-dislike-button" src="{% static 'roomie/img/pass.svg' %}" width="62px" height="84px" />
+						<img class="group-like-button" src="{% static 'roomie/img/like-roomie.svg' %}" width="62px" height="84px" />
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+			<div id="roomie-right-btn">&#10095;</div>
+		</div>
+	</div>
+
+	<div id="description">
+		<div>Description</div>
+		<div id="description-content">{{propertyInfo.description}}</div>
+	</div>
+
+	<!-- floor plan information goes here -->
+	<div id="floorplan">
+		<div id="floorplan-title">Floor Plans</div>
+		<div class="row1 floorplan-slider">
+			<div id="left-btn">&#10094;</div>
+			<div class="row1" id="floorplan-tiles">
+			{% for fp in floorplans %}
+				<div class="column tile">
+					<img src="{{fp.floorPlanPicture}}" width="200px" height="200px">
+					<div>{{fp.name}}</div>
+					<div>{{fp.sqMeters}} sqft</div>
+					<div></div>
+					<script type="text/javascript">
+						var _price = {{fp.price}};
+						console.log(_price);
+						$(".tile div").last().text("from $"+_price+"/mo");
+					</script>
+				</div>
+			{% endfor %}
+			</div>
+			<div id="right-btn">&#10095;</div>
+		</div>
+	</div>
+
+	<div style="height: 10px;"></div>
+
+	<!-- Google map goes here. Pin the property and nearby facilities -->
+	<div id="description"><div>Map</div></div>
+	<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	<div id="map" align="center"></div>
+{% endblock %}

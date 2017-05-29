@@ -1,0 +1,28 @@
+{% extends "roomie/roomiebase.html" %}
+
+{% block customized_static %}
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'roomie/css/likedproperty.css' %}">
+	<script type="text/javascript" src= "{% static 'roomie/js/likedproperty.js' %}"></script>
+{% endblock %}
+
+{% block bodycontent %}
+	<script type="text/javascript">
+		var like_icon_url = "{% static 'roomie/img/like.svg' %}"
+		var liked_icon_url = "{% static 'roomie/img/liked.svg' %}"
+		var likedproperty_detail_url = "{% url 'likedpropertydetail' %}"
+	</script>
+	<!-- Search function. Get input by #search-input -->
+	<div class="row1" id="search">
+	<div id="search-container">
+		<input type="text" name="searchbar" id="search-input" placeholder="    Search for properties, neighborhood, or zipcode">
+	</div>
+	</div>
+
+	<!-- Property Overview -->
+	<div class="column property-list">
+		<div class="row1 property-row">
+			<!-- Each property tile: 3 tiles per row -->
+		</div>
+	</div>
+{% endblock %}

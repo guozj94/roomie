@@ -1,0 +1,139 @@
+@import 'propertydetail.css';
+
+#roomie-container {
+	padding-top: 20px;
+	background-color: #F6F8FA;
+	width: 100%;
+	height: 700px;
+}
+
+
+
+#roomie-title {
+	width: 100%;
+	font-size: 30px;
+	font-weight: 500;
+	margin-bottom: 20px;
+	text-align: center;
+
+}
+.roomie-slider {
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+}
+#roomie-left-btn {
+	margin-right: 50px;
+	cursor: pointer;
+	font-size: 50px;
+}
+#roomie-right-btn {
+	margin-left: 50px;
+	cursor: pointer;
+	font-size: 50px;
+}
+#roomies {
+	justify-content: center;
+	width: 900px;
+}
+.roomie {
+	margin-left: 25px;
+	margin-top: 0px;
+	width: 420px;
+	height: 550px;
+	align-items: center;
+	background-color: white;
+}
+.roomie-name {
+	font-size: 36px;
+	color: #4a4a4a;
+	font-weight: 100;
+	margin-top: 20px;
+	font-family: "Comic Sans MS";
+	font-weight: 600;
+}
+.roomie-info {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #a6a6a6;
+	font-size: 18px;
+	font-family: "Comic Sans MS";
+	font-weight: 300;
+}
+.roomie-image {
+	margin-top: 0px;
+}
+
+.tags-container{
+	overflow: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	flex-wrap: wrap;
+	width: 340px;
+	height: auto;
+	overflow-y: scroll;
+
+}
+
+.tags {
+/*	margin-top: 10px;
+	margin-bottom: 10px;
+	flex-wrap: wrap;
+*/}
+.tags div {
+	border-radius: 5px;
+	margin: 5px;
+	padding: 8px 10px 10px 10px;
+	background-color: #ffd282;
+	color: white;
+	font-size: 18px;
+	font-weight: 300;
+	font-family: "Comic Sans MS";
+	height: 40px;
+	display: inline-block;
+}
+
+.like-or-pass img {
+	margin: 20px 50px 20px 50px;
+}
+.like-or-pass img:hover {
+	cursor: pointer;
+}
+
+
+/*Profile Pic Start*/
+.picture-container{
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    width: 350px;
+    height: 180px;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.picture{
+    width: 150px;
+    height: 150px;
+    background-color: #999999;
+    border: 4px solid #CCCCCC;
+    color: #FFFFFF;
+    border-radius: 50%;
+    margin: 10px;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    display: inline-block;
+}
+
+.picture-src{
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    
+}
+.displaynone {
+	display: none;
+}
+

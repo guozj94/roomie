@@ -1,0 +1,115 @@
+@import 'likedproperty.css';
+
+#property-match-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 300;
+}
+
+.property-name-promo {
+	font-size: 20px;
+	width: 1280px;
+	margin-left: 126px;
+	margin-top: 30px;
+}
+.property-promo {
+	font-size: 16px;
+	width: 1280px;
+	margin-left: 126px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	color: #ffa300;
+}
+.property-row-promo {
+	width: 1280px;
+	margin-left: 126px;
+}
+.overview {
+	border-top: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: white;
+}
+#overview-neighborhood-name {
+	font-size: 12px;
+	color: #9b9da0;
+	margin-top: 27px;
+	padding-left: 30px;
+}
+#overview-property-name {
+	font-size: 20px;
+	color: #0f4555;
+	margin-top: 17px;
+	padding-left: 30px;
+}
+#address {
+	padding-left: 30px;
+}
+#address div:first-child {
+	font-size: 20px;
+	color: #0e0330;
+	margin-top: 22px;
+	font-weight: 800;
+}
+#address div:nth-child(2) {
+	font-size: 20px;
+	color: #0e0330;
+	font-weight: 100;
+}
+#address div:nth-child(3) {
+	font-size: 20px;
+	color: #0e0330;
+	font-weight: 100;
+}
+#address div:nth-child(4) {
+	font-size: 20px;
+	color: #ffa300;
+	font-weight: 100;
+}
+#transport {
+	padding-left: 30px;
+}
+#transport div:first-child {
+	font-size: 20px;
+	color: #0e0330;
+	margin-top: 22px;
+	font-weight: 800;
+}
+#transport div:nth-child(2) {
+	font-size: 20px;
+	color: #0e0330;
+	font-weight: 100;
+}
+
+.property-operation {
+	margin-top: 18px;
+	justify-content: center;
+	border-top: 1px solid #F0F0F0;
+}
+.property-operation-sub {
+	align-items: center;
+	width: 113px;
+	padding-bottom: 5px;
+}
+.property-operation-sub-text {
+	font-size: 12px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	color: #9B9DA0;
+}
+#property-bedrooms-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 100;
+}
+#property-price-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 100;
+}
+#property-bedrooms {
+	border-right: 1px solid #f0f0f0;
+}
+#property-price {
+	border-right: 1px solid #f0f0f0;
+}

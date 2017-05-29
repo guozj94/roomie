@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Roomie</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    {% load staticfiles %}  
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{% static 'roomie/css/bootstrap.min.css' %}">
+    <!-- Tags inputting -->
+    <link rel="stylesheet" href="{% static 'roomie/css/bootstrap-tagsinput.css' %}">
+
+    <script src="{% static 'roomie/js/jquery-3.2.0.js' %}"></script>
+    <!-- bootstrap -->
+    <script src="{% static 'roomie/js/bootstrap.min.js' %}"></script>
+    <!-- jquery -->
+    
+    <!-- jQuery UI -->
+    <script src="{% static 'roomie/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'roomie/js/jquery-ui.min.js' %}"></script>
+    <!-- Tags inputting -->
+    <script src="{% static 'roomie/js/bootstrap-tagsinput.js' %}"></script>
+
+   	{% block customized_static %}{% endblock %}
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="row1 navrow">
+				<div id="nav-bar">
+					{% load static %}
+					<img src="{% static 'roomie/img/roomie.svg' %}" width="186px" height="66px">
+					<a class="nav-btn" href="{% url 'searchproperty' %}" width="50px">Search Property</a>
+					<a class="nav-btn" href="{% url 'likedproperty' %}">Liked Property</a>
+					<a class="nav-btn" href="{% url 'chatroom_basic' %}">Roommate Matches</a>
+					<div class="navspace"></div>
+					<div class="row1 user-info">
+	 					<div id="user-firstname">{{user.first_name}}</div>			
+						<!-- Django Vars end -->
+						
+						<div class="dropdown">
+						  <img id="user-avatar" class="dropdown-toggle img-circle" aria-haspopup="true" aria-expanded="true" data-toggle="dropdown" src="{% url 'picture' user.id %}" onerror="this.src='../../../static/roomie/img/default_photo.png'" width="80px" height="80px">
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="/roomie/profile" onclick="location.href=this.href+'?username='+{{user.username}}">Profile</a></li>
+						    <li role="separator" class="divider"></li>
+						    <li><a href="{% url 'logout' %}">Logout</a></li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	{% block bodycontent %}{% endblock %}
+	
+	<!-- <div class="" style="background-color: rgb(46,204,113);padding: 1rem;">
+		<div style="font-size: 14px; font-weight: 100; color: white;margin-left: 100px;">Copyright © 2017 Zhijia Guo, Changkai Zhou, Shashank Thakare. All Rights Reserved.</div>
+	</div> -->
+</body>
+</html>

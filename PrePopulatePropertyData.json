@@ -1,0 +1,110 @@
+[
+  {
+    "model": "roomie.Property",
+    "pk": 1,
+    "fields": {
+      "description": "dummy_Description1",
+      "address": "dummy_Address1",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 2,
+    "fields": {
+      "description": "dummy_Description2",
+      "address": "dummy_Address",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 3,
+    "fields": {
+      "description": "dummy_Description3",
+      "address": "dummy_Address3",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 4,
+    "fields": {
+      "description": "dummy_Description4",
+      "address": "dummy_Address4",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 5,
+    "fields": {
+      "description": "dummy_Description5",
+      "address": "dummy_Address5",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 6,
+    "fields": {
+      "description": "dummy_Description6",
+      "address": "dummy_Address6",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 7,
+    "fields": {
+      "description": "dummy_Description7",
+      "address": "dummy_Address7",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 8,
+    "fields": {
+      "description": "dummy_Description8",
+      "address": "dummy_Address8",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  },
+  {
+    "model": "roomie.Property",
+    "pk": 9,
+    "fields": {
+      "description": "dummy_Description9",
+      "address": "dummy_Address9",
+      "transport": "dummy_transport",
+      "coordinates": "dummy_coordinates",
+      "propertyPicture": "dummy_propertyPicture",
+      "content_type": "dummy_content_type"
+    }
+  }
+]

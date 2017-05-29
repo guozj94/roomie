@@ -1,0 +1,36 @@
+from django.conf.urls import include, url
+from django.contrib.auth import views as auth_views
+from roomie import views as roomie_views
+
+urlpatterns = [
+    url(r'^$', roomie_views.searchproperty, name='empty'),
+    url(r'^home$', roomie_views.searchproperty, name='roomie_home'),
+    url(r'^register$', roomie_views.register, name='register'),
+    url(r'^confirm-registration/(?P<username>.+)/(?P<token>[a-z0-9\-]+)$', 
+        roomie_views.confirm_registration, name='confirm'),
+    url(r'^login$', auth_views.login, {'template_name':'roomie/login.html'}, name='login'),
+    url(r'^logout$', auth_views.logout_then_login, name='logout'),
+    url(r'^profile', roomie_views.profile, name='profile'),
+    url(r'^usersetting', roomie_views.user_setting, name='user_setting'),
+    url(r'^picture/(?P<id>\S+)$', roomie_views.get_picture, name='picture'),
+    url(r'^upload$', roomie_views.add_picture, name='upload'),
+    url(r'^searchproperty$', roomie_views.searchproperty, name='searchproperty'),
+    url(r'^searchproperty_getresults$', roomie_views.searchproperty_getresults, name='searchproperty_getresults'),
+    url(r'^searchproperty_searchresults$', roomie_views.searchproperty_searchresults, name='searchproperty_searchresults'),
+    url(r'^likedproperty$', roomie_views.likedproperty, name='likedproperty'),
+    url(r'^likedpropertydetail/(?P<property_id>\S+)$', roomie_views.likedpropertydetail, name='likedpropertydetail'),
+    url(r'^likedpropertydetail$', roomie_views.likedpropertydetail, name='likedpropertydetail'),
+    url(r'^likedproperty_getresults$', roomie_views.likedproperty_getresults, name='likedproperty_getresults'),
+    url(r'^likedpropertydetail_json$', roomie_views.likedpropertydetail_json, name='likedpropertydetail_json'),
+    url(r'^updatelikedb$', roomie_views.updatelikedb, name='updatelikedb'),
+    url(r'^propertydetail/(?P<property_id>\S+)$', roomie_views.propertydetail, name='propertydetail'),
+    url(r'^propertydetail$', roomie_views.propertydetail, name='propertydetail'),
+    url(r'^chatroom$', roomie_views.chatroom_basic, name='chatroom_basic'),
+    url(r'^chatroom_getchats$', roomie_views.getChats, name='chatroom_getchats'),
+    url(r'^chatroom_writechat$', roomie_views.writeChat, name='chatroom_writechat'),
+    url(r'^chatroom_getcontacts$', roomie_views.getContacts, name='chatroom_getcontacts'),
+    url(r'^chatroom_changenotification$', roomie_views.changeNotification, name='chatroom_changenotification'),
+    url(r'^chatroom_quitgroup$', roomie_views.quit_group_and_reload, name='chatroom_quit_group_and_reload'),
+    url(r'^chatroom_addroomie$', roomie_views.open_add_roomie, name='chatroom_open_add_roomie'), 
+    url(r'^chatroom_confirmroomie$', roomie_views.confirm_roomie, name='chatroom_confirm_roomie'), 
+]

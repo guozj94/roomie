@@ -1,0 +1,89 @@
+{% extends "roomie/roomiebase.html" %}
+
+{% block customized_static %}
+	{% load static %}
+    <script type="text/javascript" src="{% static 'roomie/js/chatroom.js' %}"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'roomie/css/chatroom.css' %}">
+{% endblock %}
+
+{% block bodycontent %}
+	<script type="text/javascript">
+		var this_user = {{user.id}};
+		console.log(this_user);
+	</script>
+
+	<div id="chatroom-container">
+		<div id="contacts-container">
+			<!-- <div class="column contacts-in-one-property">
+				<div class="property-name">Bakery Living Blue</div>
+				<input type="hidden" name="propertyid" value="">
+				<div class="row1 avatar-container">
+					<input type="hidden" name="id" value="1">
+					<div class="column contact">
+						<img src="" width="50px" height="50px">
+						<div class="contact-info">Someone1</div>
+						<input type="hidden" name="userid" value="">
+					</div>
+					<div class="column contact">
+						<img src="" width="50px" height="50px">
+						<div class="contact-info">Someone2</div>
+						<input type="hidden" name="userid" value="">
+					</div>
+					<div class="column contact">
+						<img src="" width="50px" height="50px">
+						<div class="contact-info">Someone3</div>
+						<input type="hidden" name="userid" value="">
+					</div>
+				</div>
+			</div> -->
+		</div>
+
+		<div class="displaynone" id="settings-container">
+			<div id="title">Settings</div>
+			<div id="question">Do you want to receive email notification?</div>
+			<div class="row1 options clickable">
+				<div>yes</div>
+				<div>no</div>
+			</div>
+			<div class="clickable" id="done">Done</div>
+			<div class="clickable" id="more-option">or, more options</div>
+			<div class="row1 more-option-row displaynone">
+				<div class="clickable" id="quit">Quit Chat</div>
+				<div class="clickable" id="report">Report</div>
+			</div>
+			<div class="clickable displaynone" id="less-option">or, less options</div>
+		</div>
+
+
+		<div id="chat-container">
+			<div class="" id="chat-content">
+				<!-- <div class="row1 my-chat">
+					<div class="message">Hell no</div>
+					<img class="avatar-in-chat" src="" width="50px" height="50px">
+				</div>
+				<div class="row1 a-chat">
+					<img class="avatar-in-chat" src="" width="50px" height="50px">
+					<div class="message">Haha I can talk to you now. is this exciting? i want to try how does long text look like. to you now. is this exciting? i want to try how does long text </div>
+				</div> -->
+			</div>
+			<div class="column" id="chat-functions">
+				<div class="row1 displaynone">
+					<div class="column add" id="add">
+						<img src="{% static 'roomie/img/add.svg' %}">
+						<div>Add Roomie</div>
+					</div>
+					<div class="column confirm" id="confirm">
+						<img src="{% static 'roomie/img/confirm.svg' %}">
+						<div>Confirm Roomie</div>
+					</div>
+					<div class="column settings">
+						<img src="{% static 'roomie/img/settings.svg' %}" width="46px" height="46px">
+						<div>Chat Settings</div>
+					</div>
+				</div>
+				<textarea class="displaynone" id="text-input" rows="2" cols="70"></textarea>
+			</div>
+		</div>
+	</div>
+	<div style="height: 800px;"></div>
+{% endblock %}

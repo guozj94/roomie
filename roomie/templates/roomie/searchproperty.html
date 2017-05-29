@@ -1,0 +1,92 @@
+{% extends "roomie/roomiebase.html" %}
+
+{% block customized_static %}
+	{% load static %}
+    <link rel="stylesheet" href="{% static 'roomie/css/searchproperty.css' %}">
+	<script src="{% static 'roomie/js/searchproperty.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block bodycontent %}
+<script type="text/javascript">
+		var like_icon_url = "{% static 'roomie/img/like.svg' %}"
+		var liked_icon_url = "{% static 'roomie/img/liked.svg' %}"
+		var property_detail_url = "{% url 'propertydetail' %}"
+</script>
+
+	<!-- Search function. Get input by #search-input -->
+	<div class="row1" id="search">
+		<div id="search-container">
+			<input type="text" name="searchbar" id="search-input" placeholder="    Search for properties, neighborhood, or zipcode">
+		</div>
+	</div>
+
+	<div class="column property-list">
+		<div class="row1 property-name-promo">Bakery Living Blue</div>
+		<div class="row1 property-promo">Sponsored</div>
+		<div class="row1 property-row-promo">
+		<div class="row1 property-overview">
+			<img src="" width="650px" height="380px">
+			<div class="column overview">
+				<div id="overview-neighborhood-name">EAST LIBERTY</div>
+				<div id="overview-property-name">Bakery Living Blue</div>
+				<div id="address">
+					<div>Address</div>
+					<div>6454 Living Pl.</div>
+					<div>Pittsburgh, PA 15206</div>
+					<div>2 miles from campus</div>
+				</div>
+				<div id="transport">
+					<div>Transport</div>
+					<div>71D, 84, CMU Shuttle</div>
+				</div>
+				<div class="row1 property-operation">
+					<!-- How many liked the property -->
+					<div class="column property-operation-sub" id="property-like">
+						<div class="property-operation-sub-text" id="property-like-text">LIKE</div>
+						<img id="property-like-icon" src="{% static 'roomie/img/like.svg' %}" width="28px" height="28px">
+					</div>
+					<!-- Price of the property -->
+					<div class="column property-operation-sub" id="property-price">
+						<div class="property-operation-sub-text" id="property-price-text">PRICE</div>
+						<div id="property-price-value">+$780/mo</div>
+					</div>
+					
+					<!-- How many matches do you have for this property -->
+					<div class="column property-operation-sub" id="property-sqft">
+						<div class="property-operation-sub-text" id="property-sqft-text">SQ.FEET</div>
+						<div id="property-match-value">600</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+		</div>
+
+		<div class="row1 property-row">
+			<!-- Each property tile: 3 tiles per row -->
+			<div class="column property-tile">
+				<img src="" width="343px" height="220px">
+				<!-- Name of the neighborhood and property -->
+				<div class="property-neighborhood">SHADYSIDE</div>
+				<div class="property-name">Kennilworth Apartments</div>
+				<div class="row1 property-operation">
+					<!-- How many liked the property -->
+					<div class="column property-operation-sub" id="property-like">
+						<div class="property-operation-sub-text" id="property-like-text">LIKE</div>
+						<img id="property-like-icon" src="{% static 'roomie/img/like.svg' %}" width="28px" height="28px">
+					</div>
+					<!-- Price of the property -->
+					<div class="column property-operation-sub" id="property-price">
+						<div class="property-operation-sub-text" id="property-price-text">PRICE</div>
+						<div id="property-price-value">+$780/mo</div>
+					</div>
+					
+					<!-- How many matches do you have for this property -->
+					<div class="column property-operation-sub" id="property-sqft">
+						<div class="property-operation-sub-text" id="property-sqft-text">SQ.FEET</div>
+						<div id="property-match-value">600</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

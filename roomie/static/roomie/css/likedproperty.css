@@ -1,0 +1,178 @@
+@import 'reset.css'
+
+html {
+	font-family: "Open Sans";
+	box-sizing: border-box;
+}
+* {
+	font-family: "Open Sans";
+	font-size: 14px;
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	background-color: rgb(246,248,250);
+}
+div {
+	margin: 0;
+	padding: 0;
+}
+header {
+	width: 100%;
+}
+header nav {
+	width: 100%;
+	background-color: rgb(46,204,113);
+}
+a {
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+}
+.row1 {
+	display: flex;
+	flex-direction: row;
+}
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+/*CSS of navigation bar*/
+.navrow {
+	justify-content: center;
+}
+#nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 1280px;
+	height: 90px;
+}
+#nav-bar img {
+	margin-left: 25px;
+	margin-right: 43px;
+}
+#nav-bar-left {
+	width: 900px;
+}
+#nav-bar .nav-btn {
+	font-size: 22px;
+	padding: 30px 18px 30px 18px;
+	color: white;
+	font-weight: 100;
+}
+#nav-bar .nav-btn:hover {
+	background-color: rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+.user-info {
+	justify-content: flex-end;
+	align-items: center;
+	height: 80px;
+	margin-left: 30px;
+	padding-left: 10px;
+}
+#user-firstname {
+	font-size: 22px;
+	padding: 15px 0px 15px 40px;
+	border-left: 1px solid white;
+	color: white;
+}
+
+/*Search Bar*/
+#search {
+	background-color: #34495e;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	width: 100%;
+}
+#search-container {
+	width: 1280px;
+}
+#search-container input {
+	height: 35px;
+	width: 500px;
+	margin: 12.5px 10px 12.5px 50px;
+	padding-left: 20px;
+	border: 0;
+	border-radius: 10px;
+}
+
+/*Property Tiles*/
+.property-list {
+	align-items: center;
+}
+.property-row {
+	width: 1280px;
+	/*height: 450px;*/
+	padding: 40px 31.5px 0px 31.5px;
+}
+.property-tile {
+	background-color: white;
+	margin-left: 31.5px;
+	margin-right: 31.5px;
+	transition: box-shadow 100ms linear;
+}
+.property-tile:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.property-neighborhood {
+	font-size: 12px;
+	color: #9b9da0;
+	padding-left: 20px;
+	padding-top: 24px;
+}
+.property-name {
+	font-size: 20px;
+	color: #0f4555;
+	padding-left: 20px;
+	padding-top: 7px;
+	border: none;
+	background: none;
+	text-align: left;
+}
+.property-name:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.property-operation {
+	margin-top: 30px;
+	justify-content: center;
+	border-top: 1px solid #F0F0F0;
+}
+.property-operation-sub {
+	align-items: center;
+	width: 114.3px;
+	padding-bottom: 5px;
+}
+.property-operation-sub-text {
+	font-size: 12px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	color: #9B9DA0;
+}
+#property-price-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 300;
+}
+#property-price {
+	border-right: 1px solid #f0f0f0;
+}
+#property-like {
+	border-right: 1px solid #f0f0f0;
+}
+#property-match-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 300;
+}
+#property-like-icon {
+	cursor: pointer;
+}
+
+
+

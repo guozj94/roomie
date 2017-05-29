@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Roomie</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load staticfiles %}	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!-- jquery -->
+	<script src="{% static 'roomie/js/jquery-3.2.0.js' %}"></script>
+    <!-- jQuery UI -->
+    <script src="{% static 'roomie/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'roomie/js/jquery-ui.min.js' %}"></script>
+	<!-- Tags inputting -->
+    <script src="{% static 'roomie/js/bootstrap-tagsinput.js' %}"></script>
+	<!-- bootstrap -->
+	<script src="{% static 'roomie/js/bootstrap.min.js' %}"></script>
+	<!-- Customized -->
+	<link rel="stylesheet" href="{% static 'roomie/css/login.css' %}">
+
+
+</head>
+
+<body>
+	<div style="margin-top: 200px;">
+		<img src="{% static 'roomie/img/roomie.svg' %}" width="250px">
+	</div>
+	<!-- <p class="texto">Roomie</p> -->
+	<div class="Registro">
+
+		<form method="POST" action="{% url 'login' %}">
+			<input name='username' type="text" required autofocus placeholder="Username" autocomplete="off">
+			<input type="password" name="password" id="password" required placeholder="Password" autocomplete="off"> 
+			<Input type="submit" value="LOG IN" title="Login">
+			{% csrf_token %}
+		</form>
+		<form method="GET" action="{% url 'register' %}">
+			<input type="submit" value="REGISTER" title="Register">
+			{% csrf_token %}
+		</form>
+		
+	</div>
+
+</body>
+</html>

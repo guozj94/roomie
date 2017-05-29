@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Roomie</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% load staticfiles %}	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!-- bootstrap -->
+	<link rel="stylesheet" type="text/css" href="{% static 'roomie/css/bootstrap.min.css' %}">
+	<!-- Tags inputting -->
+	<link rel="stylesheet" href="{% static 'roomie/css/bootstrap-tagsinput.css' %}">
+
+
+	<!-- jquery -->
+	<script src="{% static 'roomie/js/jquery-3.2.0.js' %}"></script>
+    <!-- jQuery UI -->
+    <script src="{% static 'roomie/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'roomie/js/jquery-ui.min.js' %}"></script>
+	<!-- Tags inputting -->
+    <script src="{% static 'roomie/js/bootstrap-tagsinput.js' %}"></script>
+	<!-- bootstrap -->
+	<script src="{% static 'roomie/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'roomie/js/profile.js' %}"></script>
+
+	<!-- Customized -->
+	<link rel="stylesheet" href="{% static 'roomie/css/profile.css' %}">
+
+</head>
+
+
+<!-- 1. Tag input 2.Title Size and Color 3.Finish Button 4.The horizontal line -->
+
+<body>
+	<header>
+		<nav>
+			<div class="row-flex navrow">
+				<div id="nav-bar">
+					{% load static %}
+					<img src="{% static 'roomie/img/roomie.svg' %}" width="186px" height="66px">
+					<a class="nav-btn" href="{% url 'searchproperty' %}" width="50px">Search Property</a>
+					<a class="nav-btn" href="{% url 'likedproperty' %}">Liked Property</a>
+					<a class="nav-btn" href="{% url 'chatroom_basic' %}">Roommate Matches</a>
+					
+
+					<div class="row-flex user-info">
+	 					<div id="user-firstname">{{user.first_name}}</div>
+						
+						<!-- Django Vars end -->
+						
+						<div class="dropdown">
+						  <img id="user-avatar" class="dropdown-toggle img-circle" aria-haspopup="true" aria-expanded="true" data-toggle="dropdown" src="{% url 'picture' user.id %}" onerror="this.src='../../../static/roomie/img/default_photo.png'" width="80px" height="80px">
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="/roomie/profile" onclick="location.href=this.href+'?username='+{{user.username}}">Profile</a></li>
+						    <li role="separator" class="divider"></li>
+						    <li><a href="{% url 'logout' %}">Logout</a></li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+
+	
+	<!-- <button class="btn btn-primary" type="submit">Update Photo</button> -->
+	
+	<div class="column profile-list">
+
+		<div class="row-flex profile-row">
+			<div class="row-flex profile-title">
+				Hello! How do you describe yourself?
+			</div>
+		</div>
+		
+
+		<div class="profile-row">
+			<div class="container">
+			    <div class="picture-container">
+			        <form enctype="multipart/form-data" action="{% url 'upload' %}" method="post">
+				        <div class="picture">
+				            <img src="{% url 'picture' user.id %}" onerror="this.src='../../../static/roomie/img/default_photo.png'" class="picture-src" id="wizardPicturePreview" title="">
+				            <input  type="file" id="picture" name="picture">
+				        </div>
+				        <button id="submit-pic-bnt" class="btn btn-primary pic-btn" type="submit">Update Photo</button>
+						{% csrf_token %}
+					</form>
+			    </div>
+			</div>
+
+			<form method="POST" id="form-finish" action="{% url 'profile' %}">
+
+			<div class="row-flex">
+				
+			</div>
+			<div class="row-flex profile-qs">
+				What program are you in at CMU?
+			</div>
+			<div class="row-flex profile-tgroup">
+                {% for eg in egs_program %}
+                <button class="profile-tag" type="button">{{eg}}</button>
+                {% endfor %}
+			</div>
+			<div class="row-flex profile-inputbox">
+				{% if profile_form.program.value is None %}
+	            <input type="text" data-role="tagsinput" class="profile-inputtag" name="program" id="input-program" value=""  placeholder="Enter your program" autofocus/>
+				{% else %}
+	            <input type="text" class="profile-inputtag" name="program" id="input-program" value="{{ profile_form.program.value }}" data-role="tagsinput" placeholder="" autofocus/>
+				{% endif %}
+			</div>
+		</div>
+		<div class="profile-row">
+			<div class="row-flex profile-qs">
+				What's your gender?
+			</div>
+			<div class="row-flex profile-tgroup">
+                {% for eg in egs_gender %}
+                <button class="profile-tag" type="button">{{eg}}</button>
+                {% endfor %}
+			</div>
+			<div class="row-flex profile-inputbox">
+				{% if profile_form.gender.value is None %}
+	            <input type="text" class="profile-inputtag" name="gender" id="input-gender" value="" data-role="tagsinput" placeholder="Select your gender" />
+	            {% else %}          
+	            <input type="text" class="profile-inputtag" name="gender" id="input-gender" value="{{profile_form.gender.value}}" data-role="tagsinput" placeholder="" />	            
+				{% endif %}
+			</div>
+		</div>
+		<div class="profile-row">
+			<div class="row-flex profile-qs">
+				What's your nationality?
+			</div>
+			<div class="row-flex profile-tgroup">
+                {% for eg in egs_nation %}
+                <button class="profile-tag" type="button">{{eg}}</button>
+                {% endfor %}
+			</div>
+			<div class="row-flex profile-inputbox">
+				{% if profile_form.nationality.value is None %}
+	            <input type="text" class="profile-inputtag" name="nationality" id="input-nation" value="" data-role="tagsinput" placeholder="Enter your nationality" />
+	            {% else %}
+	            <input type="text" class="profile-inputtag" name="nationality" id="input-nation" value="{{ profile_form.nationality.value }}" data-role="tagsinput" placeholder="" />
+	            {% endif %}
+			</div>
+		</div>
+		<div class="profile-row">
+			<div class="row-flex profile-qs">
+				Let's learn more about you!
+			</div>
+			<div class="row-flex profile-tgroup">
+                {% for eg in egs_tags %}
+                <button class="profile-tag" type="button">{{eg}}</button>
+                {% endfor %}
+			</div>
+			<div class="row-flex profile-inputbox">
+				{% if profile_form.tags.value is None %}
+	            <input type="text" class="profile-inputtag" name="tags" id="input-tags" value="" data-role="tagsinput" placeholder="Enter your personalized tags" />
+				{% else %}
+	            <input type="text" class="profile-inputtag" name="tags" id="input-tags" value="{{ profile_form.tags.value }}" data-role="tagsinput" placeholder="" />
+	            {% endif %}
+			</div>
+		</div>
+		<center>
+		<br>
+		<div class="row-flex">   
+		    <input type="submit" class="btn btn-primary finish-btn" id="Finish" value="Finish" id="finish-button">
+		</div>
+		{% csrf_token %}
+		</form>
+
+
+	
+    </div>
+	
+	<script>
+		$('.profile-tag').click(function(){
+			// var old = $("this:parent .profile-inputtag").val();
+			var new_value = $(this).text();
+			$(this).parents(".profile-row").find(".profile-inputtag").tagsinput('add', new_value);
+		});	
+		$('#input-program').tagsinput({
+			maxTags: 1
+		});
+		$('#input-nation').tagsinput({
+			maxTags: 1
+		});
+		$('#input-gender').tagsinput({
+			maxTags: 1
+		});
+	</script>
+
+	<script>
+		$('#form-finish').on('keyup keypress keydown', function(e) {
+		  var keyCode = e.keyCode;
+		  if (keyCode == 13) { 
+		    e.preventDefault();
+		    return false;
+		  }
+		});
+	</script>
+
+
+	<script>
+		$('#profile-image').on('click', function() {
+		    $('#profile-image-upload').click();
+		});
+		$('#profile-image').on('hover', function() {
+		    
+		});
+	</script>
+
+</body>
+</html>

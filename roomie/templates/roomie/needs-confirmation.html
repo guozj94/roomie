@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Roomie</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load staticfiles %}	
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<script src="{% static 'roomie/js/jquery-3.2.0.js' %}"></script>
+    <!-- jQuery UI -->
+    <script src="{% static 'roomie/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'roomie/js/jquery-ui.min.js' %}"></script>
+	<!-- Tags inputting -->
+    <script src="{% static 'roomie/js/bootstrap-tagsinput.js' %}"></script>
+	<!-- bootstrap -->
+	<script src="{% static 'roomie/js/bootstrap.min.js' %}"></script>
+
+	<!-- Customized -->
+	<link rel="stylesheet" href="{% static 'roomie/css/login.css' %}">
+
+
+</head>
+
+<body>
+
+<p class="texto">Roomie</p>
+
+
+<div class="row confirm-text">
+	<p>
+	A confirmation email has been sent to {{email}}.  Please click the link
+	in that email to confirm your email address and complete your registration for roomie.
+	</p>
+
+</div>
+
+</body>
+</html>

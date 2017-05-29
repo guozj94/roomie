@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="187px" height="79px" viewBox="0 0 187 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" fill="#FFFFFF">
+            <text id="ROOMIE" font-family="Lato-Bold, Lato" font-size="36" font-weight="bold" letter-spacing="2.83999991">
+                <tspan x="0" y="36"> </tspan>
+                <tspan x="11.5879999" y="36" letter-spacing="4.25999975">ROOMIE </tspan>
+            </text>
+            <path d="M64.9596566,65 C64.9863839,64.4177797 65,63.8292566 65,63.2352941 C65,50.9550803 59.1797017,41 52,41 C44.8202983,41 39,50.9550803 39,63.2352941 C39,63.8292566 39.0136161,64.4177797 39.0403434,65 L64.9596566,65 Z" id="Combined-Shape" stroke="#FFFFFF"></path>
+            <path d="M97.9596566,65 C97.9863839,64.4177797 98,63.8292566 98,63.2352941 C98,50.9550803 92.1797017,41 85,41 C77.8202983,41 72,50.9550803 72,63.2352941 C72,63.8292566 72.0136161,64.4177797 72.0403434,65 L97.9596566,65 Z" id="Combined-Shape" stroke="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>
