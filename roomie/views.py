@@ -15,6 +15,7 @@ from django.db.models import Q
 import time
 import json
 import sys
+import os
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
@@ -28,6 +29,8 @@ from django.template.loader import render_to_string
 #        location = settings.MEDIAFILES_LOCATION
 
 # DEBUG = True
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 @transaction.atomic
@@ -240,7 +243,8 @@ def searchproperty_getresults(request):
             for z in likedusers_to_x:
                 if user_id == z.id:
                     if_liked = 'TRUE'
-            a = {'propertyPictureURL': x.propertyPicture, 'neighborhood': x.neighborhood, 'name': x.name,
+            propertyPicUrl = '../../' + x.propertyPicture
+            a = {'propertyPictureURL': propertyPicUrl, 'neighborhood': x.neighborhood, 'name': x.name,
                  'likes': x.likedUsers.count(),
                  'price': minPrice, 'sqft': minSqMeters, 'id': x.id, 'if_liked': if_liked}
             tryjson.append(a)
@@ -276,7 +280,8 @@ def searchproperty_searchresults(request):
             for z in likedusers_to_x:
                 if user_id == z.id:
                     if_liked = 'TRUE'
-            a = {'propertyPictureURL': x.propertyPicture, 'neighborhood': x.neighborhood, 'name': x.name,
+            propertyPicUrl = '../../' + x.propertyPicture
+            a = {'propertyPictureURL': propertyPicUrl, 'neighborhood': x.neighborhood, 'name': x.name,
                  'likes': x.likedUsers.count(),
                  'price': minPrice, 'sqft': minSqMeters, 'id': x.id, 'if_liked': if_liked}
             tryjson.append(a)
@@ -316,7 +321,8 @@ def likedproperty_getresults(request):
                 if minPrice > y.price:
                     minPrice = y.price
                     minSqMeters = y.sqMeters
-            a = {'propertyPictureURL': x.propertyPicture, 'neighborhood': x.neighborhood, 'name': x.name,
+            propertyPicUrl = '../../' + x.propertyPicture
+            a = {'propertyPictureURL': propertyPicUrl, 'neighborhood': x.neighborhood, 'name': x.name,
                  'likes': x.likedUsers.count(),
                  'price': minPrice, 'sqft': minSqMeters, 'id': x.id, 'if_liked': 'TRUE'}
             tryjson.append(a)
@@ -333,12 +339,16 @@ def likedpropertydetail(request, property_id):
     context = {}  # property_id = request.POST.get('propertyid', False)
     floorplans = FloorPlan.objects.filter(property=property_id).values('floorPlanPicture', 'content_type', 'name',
                                                                        'sqMeters', 'price')
+    for f in floorplans:
+            f['floorPlanPicture'] = '../../' + f['floorPlanPicture']
     context['floorplans'] = floorplans
     propertyInfo = Property.objects.filter(id=property_id).values('description', 'neighborhood', 'address1',
                                                                   'address2', 'address3',
                                                                   'name', 'transport', 'coordinates',
                                                                   'propertyPicture',
                                                                   'content_type', 'likedUsers')
+    for p in propertyInfo:
+            p['propertyPicture'] = '../../' + p['propertyPicture']
     context['propertyInfo'] = propertyInfo[0]
     _property = Property.objects.get(id=property_id)
     likedUsers = _property.likedUsers.all()
@@ -464,13 +474,18 @@ def propertydetail(request, property_id):
         floorplans = FloorPlan.objects.filter(property=property_id).values('floorPlanPicture', 'content_type', 'name',
                                                                            'sqMeters', 'price')
         # print floorplans
+        for f in floorplans:
+            f['floorPlanPicture'] = '../../' + f['floorPlanPicture']
         context['floorplans'] = floorplans
         propertyInfo = Property.objects.filter(id=property_id).values('description', 'neighborhood', 'address1',
                                                                       'address2', 'address3',
                                                                       'name', 'transport', 'coordinates',
                                                                       'propertyPicture',
                                                                       'content_type', 'likedUsers')
+        for p in propertyInfo:
+            p['propertyPicture'] = '../../' + p['propertyPicture']
         context['propertyInfo'] = propertyInfo[0]
+        print context['propertyInfo']
         _property = Property.objects.get(id=property_id)
         likedUsers = _property.likedUsers.all()
         if_liked = "FALSE"

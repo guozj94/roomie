@@ -1,0 +1,298 @@
+@import 'reset.css'
+
+html {
+	font-family: 'Open Sans', sans-serif;
+	box-sizing: border-box;
+}
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+}
+div {
+	margin: 0;
+	padding: 0;
+}
+header {
+	width: 100%;
+}
+header nav {
+	width: 100%;
+	background-color: rgb(46,204,113);
+}
+.row1 {
+	display: flex;
+	flex-direction: row;
+}
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+/*CSS of navigation bar*/
+.navrow {
+	justify-content: center;
+}
+#nav-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	width: 1280px;
+	height: 90px;
+}
+#nav-bar img {
+	margin-left: 25px;
+	margin-right: 43px;
+}
+#nav-bar-left {
+	width: 900px;
+}
+#nav-bar .nav-btn {
+	font-size: 22px;
+	padding: 30px 18px 30px 18px;
+	color: white;
+	font-weight: 100;
+}
+#nav-bar .nav-btn:hover {
+	background-color: rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+.user-info {
+	justify-content: flex-end;
+	align-items: center;
+	height: 80px;
+	margin-left: 30px;
+	padding-left: 10px;
+}
+#user-firstname {
+	font-size: 22px;
+	padding: 15px 0px 15px 40px;
+	border-left: 1px solid white;
+	color: white;
+}
+
+/*Top contents name, overview, and description*/
+.top-content-container {
+	width: 100%;
+	justify-content: center;
+}
+.top-content {
+	align-items: center;
+	width: 1280px;
+	padding: 70px 130px 0px 130px;
+}
+.property-name {
+	font-size: 36px;
+	color: #4a4a4a;
+	margin-bottom: 20px;
+}
+.overview {
+	border-top: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+#overview-neighborhood-name {
+	font-size: 12px;
+	color: #9b9da0;
+	margin-top: 21px;
+	padding-left: 30px;
+}
+#overview-property-name {
+	font-size: 20px;
+	color: #0f4555;
+	margin-top: 17px;
+	padding-left: 30px;
+}
+#address {
+	padding-left: 30px;
+}
+#address div:first-child {
+	font-size: 20px;
+	color: #0e0330;
+	margin-top: 22px;
+	font-weight: 800;
+}
+#address div:nth-child(2) {
+	font-size: 20px;
+	color: #0e0330;
+	font-weight: 100;
+}
+#address div:nth-child(3) {
+	font-size: 20px;
+	color: #0e0330;
+	font-weight: 100;
+}
+#address div:nth-child(4) {
+	font-size: 20px;
+	color: #ffa300;
+	font-weight: 100;
+}
+#transport {
+	padding-left: 30px;
+}
+#transport div:first-child {
+	font-size: 20px;
+	color: #0e0330;
+	margin-top: 22px;
+	font-weight: 800;
+}
+#transport div:nth-child(2) {
+	font-size: 20px;
+	color: #0e0330;
+	font-weight: 100;
+}
+
+.property-operation {
+	margin-top: 18px;
+	justify-content: center;
+	border-top: 1px solid #F0F0F0;
+}
+.property-operation-sub {
+	align-items: center;
+	width: 113px;
+	padding-bottom: 5px;
+}
+.property-operation-sub-text {
+	font-size: 12px;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	color: #9B9DA0;
+}
+#property-bedrooms-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 100;
+}
+#property-price-value {
+	font-size: 18px;
+	color: #F5A623;
+	font-weight: 100;
+}
+#property-bedrooms {
+	border-right: 1px solid #f0f0f0;
+}
+#property-price {
+	border-right: 1px solid #f0f0f0;
+}
+#description {
+	width: 100%;
+}
+#description div:first-child {
+	text-align: center;
+	margin-top: 30px;
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+#description-content {
+    margin-top: 20px;
+    margin-bottom: 80px;
+    max-width: 1000px;
+    /* text-align: center; */
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+}
+
+/*floor plans*/
+#floorplan {
+	padding-top: 20px;
+	background-color: #F6F8FA;
+	width: 100%;
+}
+#floorplan-title {
+	font-size: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.floorplan-slider {
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 20px;
+}
+#left-btn {
+	margin-right: 50px;
+	cursor: pointer;
+}
+#right-btn {
+	margin-left: 50px;
+	cursor: pointer;
+}
+#floorplan-tiles {
+	justify-content: center;
+	width: 900px;
+}
+.tile {
+	justify-content: center;
+	align-items: center;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+.tile img {
+	margin-bottom: 10px;
+}
+.tile div:nth-child(2) {
+	font-size: 20px;
+	font-weight: 100;
+}
+.tile div:nth-child(3) {
+	font-size: 16px;
+	font-weight: 100;
+}
+.tile div:nth-child(4) {
+	font-size: 20px;
+	font-weight: 600;
+}
+#map {
+	margin: 0 auto;
+	width: 800px;
+	height: 600px;
+	border: 1px solid black;
+}
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 300px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+#target {
+  width: 345px;
+}
