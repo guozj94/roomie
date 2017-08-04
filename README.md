@@ -1,3 +1,13 @@
+# H1 Roomie - Facilitate Housing Experience in Universities
+
+Students are currently leveraging and appropriating social media and online communication to facilitate the new housing search process. However, many students reported searching for house in a new city or even a new country, or finding matching roommates, could be extremely difficult.  
+
+With Roomie, which streamline the housing-search process, students are no longer overwhelmed by the amount of options, information, and communication that’s required to facilitate the housing process from end to end.
+
+![Alt text](screenshots/1.png?raw=true "Title")
+![Alt text](screenshots/2.png?raw=true "Title")
+![Alt text](screenshots/3.png?raw=true "Title")
+
 django-intro
 ============
 
